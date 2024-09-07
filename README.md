@@ -5,15 +5,21 @@ which are then processed using an OCR library to extract the relevant details fr
 
 # Technologies Used
 Frontend: React.js
+
 Backend: Express.js (Node.js)
+
 OCR Processing: Tesseract.js
+
 Styling: Tailwind CSS
 
 
 # Features
 Image Upload: Users can upload both the front and back of an Aadhaar card.
+
 Image Display: Uploaded images are displayed on the frontend.
+
 OCR Processing: The uploaded images are processed using Tesseract.js to extract information.
+
 Data Display: Extracted Aadhaar card information is displayed in a clean, organized format.
 
 # OCR Processing
@@ -31,4 +37,5 @@ HTTP Header Security:- The application uses helmet to protect against well-known
 The project is divided into two main directories:
 
 client/: Contains the React frontend for user interaction and image uploads.
+
 server/: Contains the Express.js backend responsible for handling image uploads and performing OCR using Tesseract.js.
