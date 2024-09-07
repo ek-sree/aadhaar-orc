@@ -22,7 +22,9 @@ where the images are sent via API calls to the Express server, processed using T
 
 # Security Considerations
 File Type Validation:- Only image files are accepted for upload to ensure no harmful files are processed.
+
 Rate Limiting:- To prevent abuse, the application limits each IP to 1000 requests every 15 minutes using express-rate-limit.
+
 HTTP Header Security:- The application uses helmet to protect against well-known vulnerabilities such as XSS, content sniffing, and clickjacking by setting secure HTTP headers.
 
 # Project Structure
