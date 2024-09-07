@@ -35,27 +35,36 @@ const Landing = () => {
   const handleImageFrontChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setFrontFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFrontImg(reader.result);
-      };
-      reader.readAsDataURL(file);
+      if (file.type.startsWith("image/")) {
+        setFrontFile(file);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setFrontImg(reader.result);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        toast.error("Only image files are allowed!");
+      }
     }
   };
 
   const handleImageBackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setBackFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setBackImg(reader.result);
-      };
-      reader.readAsDataURL(file);
+      if (file.type.startsWith("image/")) {
+        setBackFile(file);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setBackImg(reader.result);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        toast.error("Only image files are allowed!");
+      }
     }
   };
 
+  
   const handleSubmit = async () => {
     try {
       if (!frontFile || !backFile) {

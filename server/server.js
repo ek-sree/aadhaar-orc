@@ -3,6 +3,7 @@ import cors from 'cors';
 import { config } from "./app/config/config.js";
 import router from "./app/router/route.js";
 import { limiter } from "./app/utils/rateLimitter.js";
+import helmet from "helmet";
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.use(cors({
     origin: config.CORS_URL,
     credentials: true
 }));
+app.use(helmet());
 
 app.use(express.json());
 app.use(limiter);
