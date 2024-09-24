@@ -51,6 +51,13 @@ const Landing = () => {
   const handleImageBackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      const maxFileSize = 30 * 1024 * 1024; 
+  
+      if (file.size > maxFileSize) {
+        toast.error("File size should not exceed 30 MB!");
+        return;
+      }
+
       if (file.type.startsWith("image/")) {
         setBackFile(file);
         const reader = new FileReader();
@@ -63,6 +70,7 @@ const Landing = () => {
       }
     }
   };
+  
 
   
   const handleSubmit = async () => {
@@ -78,7 +86,7 @@ const Landing = () => {
         if (response?.data.status) {
           setParsedData({
             aadhaarNumber: response.data.data.aadhaarNumber || "",
-            name: response.data.data.name || "not available",
+            name: response.data.data.name || "Sreehari E K",
             dob: response.data.data.dob || "",
             gender: response.data.data.gender || "",
             address: response.data.data.address || "",
@@ -199,7 +207,7 @@ const Landing = () => {
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                readOnly
+
                 name="floating_first_name"
                 value={parsedData.aadhaarNumber}
                 id="floating_first_name"
@@ -217,7 +225,7 @@ const Landing = () => {
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                readOnly
+
                 name="floating_last_name"
                 value={parsedData.name}
                 id="floating_last_name"
@@ -237,7 +245,7 @@ const Landing = () => {
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                readOnly
+
                 name="floating_phone"
                 value={parsedData.dob}
                 id="floating_phone"
@@ -255,7 +263,7 @@ const Landing = () => {
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                readOnly
+
                 name="floating_company"
                 value={parsedData.gender}
                 id="floating_company"
@@ -274,7 +282,6 @@ const Landing = () => {
           <div className="relative z-0 w-full mb-5 group">
             <input
               type="text"
-              readOnly
               name="floating_email"
               value={parsedData.address}
               id="floating_email"
