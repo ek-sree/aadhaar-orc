@@ -3,6 +3,9 @@ This is a MERN stack web application that performs Optical Character Recognition
 Users can upload images of both the front and back of an Aadhaar card, 
 which are then processed using an OCR library to extract the relevant details from the images.
 
+![Screenshot (290)](https://github.com/user-attachments/assets/553956b3-712a-4f34-9b44-20f423e7de5a)
+
+
 # Technologies Used
 Frontend: React.js
 
