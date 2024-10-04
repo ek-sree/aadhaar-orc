@@ -86,7 +86,7 @@ const Landing = () => {
         if (response?.data.status) {
           setParsedData({
             aadhaarNumber: response.data.data.aadhaarNumber || "",
-            name: response.data.data.name || "Sreehari E K",
+            name: response.data.data.name || "",
             dob: response.data.data.dob || "",
             gender: response.data.data.gender || "",
             address: response.data.data.address || "",
